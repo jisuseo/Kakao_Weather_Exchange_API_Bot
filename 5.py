@@ -25,9 +25,9 @@ if os.path.isfile('weather.csv'):
     os.remove('weather.csv')
 
 w_list = []
-print("시간\t\t\t", "온도\t", "최저\t", "최고\t\t", "기압\t\t", "습도\t", "날씨\t" )
+print("시간\t\t\t", "온도\t", "최저\t", "최고\t", "기압\t\t", "습도\t", "날씨\t" )
 for i in response_org['list']:
-    print(i['dt_txt'], "\t", i['main']['temp'], "\t", i['main']['temp_min'], "\t", i['main']['temp_max'], "\t\t", i['main']['pressure'], "\t\t", i['main']['humidity'], "\t", i['weather'][0]['description'])
+    print(i['dt_txt'], "\t", i['main']['temp'], "\t", i['main']['temp_min'], "\t", i['main']['temp_max'], "\t", i['main']['pressure'], "(1013 hPa)///1000hPa이하는 저기압 분류됨", "\t\t", i['main']['humidity'], "\t", i['weather'][0]['description'])
     # 리스트 변수에 담아두기
     w_list.append(str(i['dt_txt']) + "," +
                 str(i['main']['temp']) + "," +
