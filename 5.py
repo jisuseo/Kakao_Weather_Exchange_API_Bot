@@ -38,7 +38,7 @@ for i in response_org['list']:
                 str(i['weather'][0]['description']) )
 
     # 파일에 쓰기
-    with open('weather.csv', 'a', encoding='utf-8') as f:  # 쓰기
+    with open('weather.csv', 'a', encoding='utf-8-sig') as f:  # 쓰기
         f.write(str(i['dt_txt']) + "," +
                 str(i['main']['temp']) + "," +
                 str(i['main']['temp_min']) + "," +
