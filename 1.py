@@ -1,7 +1,23 @@
-import telegram
 
-access_token = ' ' # 본인의 텔레그램 봇 액세스 토큰
-bot = telegram.Bot(token=access_token)
-chat_id = bot.get_updates()[-1]. message.chat_id
+import asyncio
+from telegram import Bot
 
-bot.sendMessage(chat_id=chat_id, text = '안녕')
+async def main():
+    access_token = "7802317147:AAHF3TUvU0-987UeRdAgcDbp2DoYy63SbQQ"  # 실제 API 토큰 입력
+    bot = Bot(token=access_token)
+
+    # 비동기적으로 업데이트 가져오기
+    updates = await bot.get_updates()
+
+    if updates:  # 업데이트가 있는지 확인
+        chat_id = 7714904202
+        #print(chat_id)
+
+        # 메시지 보내기 (await 필수)
+        await bot.send_message(chat_id=chat_id, text="안녕")
+    else:
+        print("새로운 업데이트가 없습니다.")
+
+# 비동기 함수 실행
+asyncio.run(main())
+

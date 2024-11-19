@@ -24,3 +24,4 @@ with open('weather.csv', 'a', encoding='utf-8-sig') as f:  # 쓰기
 
 
 https://pagichacha.tistory.com/96
+
