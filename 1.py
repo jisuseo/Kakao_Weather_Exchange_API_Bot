@@ -10,7 +10,7 @@ async def main():
     updates = await bot.get_updates()
 
     if updates:  # 업데이트가 있는지 확인
-        chat_id = 7714904202
+        chat_id = 
         #print(chat_id)
 
         # 메시지 보내기 (await 필수)
