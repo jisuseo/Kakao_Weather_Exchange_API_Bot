@@ -3,7 +3,7 @@ import asyncio
 from telegram import Bot
 
 async def main():
-    access_token = "7802317147:AAHF3TUvU0-987UeRdAgcDbp2DoYy63SbQQ"  # 실제 API 토큰 입력
+    access_token = ""  # API 토큰 입력
     bot = Bot(token=access_token)
 
     # 비동기적으로 업데이트 가져오기
