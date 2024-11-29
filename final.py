@@ -2,16 +2,23 @@ import requests
 import telegram
 import datetime
 import asyncio
+import os
 
 now = datetime.datetime.now()
 current = datetime.datetime(now.year, now.month, now.day, now.hour, now.minute, now.second)
-access_token = '7802317147:AAHF3TUvU0-987UeRdAgcDbp2DoYy63SbQQ'
 
-apikey = "e2656af1c02f7c2f65d82ce7285d4f2b"
-city = "Dusseldorf"
+# 개인정보
+ACCESS_TOKEN = os.getenv("ACCESS_TOKEN")
+API_KEY = os.getenv("API_KEY")
+CITY = os.getenv("CITY")
+# 특정 채팅방 ID 설정 (개인 Chat ID)
+CHAT_ID = os.getenv("CHAT_ID")
+
+
+
 lang = "kr"
 
-full_url = f"http://api.openweathermap.org/data/2.5/forecast?id=524901&q={city}&appid={apikey}&lang={lang}&units=metric"
+full_url = f"http://api.openweathermap.org/data/2.5/forecast?id=524901&q={CITY}&appid={API_KEY}&lang={lang}&units=metric"
 
 response_org = requests.get(full_url).json()
 #print(response_org['list'])
@@ -39,15 +46,14 @@ print("기압: ", pressure)
 print("시간: ", dt_txt)
 print("########################################\n\n")
 """
-# 특정 채팅방 ID 설정 (개인 Chat ID)
-chat_id = 7714904202
+
 # 날씨 데이터 리스트 추출
 weather_list = response_org['list']
 # 비동기 함수 정의
 async def send_weather_update():
-    bot = telegram.Bot(token=access_token)
+    bot = telegram.Bot(token=ACCESS_TOKEN)
     # 메시지 생성
-    message = f"현재({current}) {city}의 날씨 정보입니다:\n\n"
+    message = f"현재({current}) {CITY}의 날씨 정보입니다:\n\n"
     for i, weather in enumerate(weather_list[:5]):  # 향후 5개의 데이터만 가져오기
         dt_txt = weather['dt_txt']
         temp = weather['main']['temp']
@@ -68,7 +74,7 @@ async def send_weather_update():
         )
 
     # 메시지를 Telegram으로 전송
-    await bot.send_message(chat_id=chat_id, text=message)
+    await bot.send_message(chat_id=CHAT_ID, text=message)
 
 # 비동기 함수 실행
 asyncio.run(send_weather_update())
