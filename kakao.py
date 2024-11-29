@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify
 
 app = Flask(__name__)
 
-API_KEY = "e2656af1c02f7c2f65d82ce7285d4f2b"  # OpenWeatherMap API Key
+API_KEY = ""  # OpenWeatherMap API Key
 CITY = "Dusseldorf"
 LANG = "kr"  # 한국어로 날씨 정보 받기
 KAKAO_API_URL = "https://kapi.kakao.com/v2/api/talk/memo/default/send"
