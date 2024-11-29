@@ -1,7 +1,7 @@
 import requests
 
 apikey = ""
-city = "Dusseldorf"
+city = ""
 lang = "kr"
 
 url = f"http://api.openweathermap.org/geo/1.0/direct?q={city}&appid={apikey}"
