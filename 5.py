@@ -1,7 +1,7 @@
 import requests
 
 apikey = ""
-city = "Dusseldorf"
+city = ""
 lang = "kr"
 full_url = f"http://api.openweathermap.org/data/2.5/forecast?id=524901&q={city}&appid={apikey}&lang={lang}&units=metric"
 response_org = requests.get(full_url).json()
