@@ -1,27 +1,32 @@
-https://openweathermap.org/current
+# 🌦️ Kakao_Weather_Exchange_API_Bot
 
-- API call
-https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={API key}
+카카오 API, OpenWeather API, 한국수출입은행 환율 API를 연동하여 매일 **날씨 및 환율 정보를 자동 수집하고 카카오톡으로 알림 전송하는 Python 프로젝트**입니다.
 
-http://api.openweathermap.org/data/2.5/forecast?id=524901&appid={API key}
-url = f"http://api.openweathermap.org/geo/1.0/direct?q={city}&appid={apikey}"
+---
 
+## 📋 프로젝트 개요
+- 🌐 **OpenWeather API**: 독일 뒤셀도르프 및 서울 날씨 예보 (최대 48시간)
+- 💱 **한국수출입은행 환율 API**: USD, EUR 환율 정보 및 변화량
+- 📢 **카카오 디벨로퍼 API**: 친구에게 카카오톡 메시지 전송
+- 🔐 **.env 파일을 통한 API Key 및 민감정보 보안 관리**
+- ⏰ 매일 정해진 시간에 실행 가능 (예: 스케줄러 연동)
 
-https://foss4g.tistory.com/1624
+---
 
+## 🛠️ 사용 기술 및 라이브러리
+- **Python**: requests, json, dotenv, datetime, urllib3
+- **API 연동**: OpenWeather, Kakao Developer, 한국수출입은행 API
+- **환경변수 관리**: dotenv (.env 파일)
+- **카카오톡 전송**: KakaoTalk Friend Message API
 
--- 5.py
- # 파일 생성 시 'w' -> 'a'로 설정해야 파일에 값이 모두 쓰여집니다.
-# 'w' 모드로 할 경우, 마지막 값으로 덮어쓰기 되기 때문에 마지막 값만 보입니다.
-with open('weather.csv', 'a', encoding='utf-8-sig') as f:  # 쓰기
-    f.write(str(i['dt_txt']) + "," +
-            str(i['main']['temp']) + "," +
-            str(i['main']['temp_min
+---
 
+## 🔑 주요 기능
+- 독일(뒤셀도르프)와 서울의 기온, 체감온도, 습도, 기압 등 날씨 정보 제공
+- USD, EUR 환율 및 전일 대비 변화량 계산 및 표시
+- 카카오톡으로 메시지 전송 (알림용)
+- 환경변수를 활용한 보안 유지
+- 예외 처리 및 데이터 파싱 로직 포함
 
--- 5.py
-# csv 파일 생성시 마지막 description의 한글이 깨져서 나오는 경우가 있으므로 utf-8-sig 로 인코딩을 하면 해결됩니다
-
-
-https://pagichacha.tistory.com/96
+---
 
