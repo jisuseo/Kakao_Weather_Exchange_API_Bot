@@ -5,15 +5,20 @@ import datetime
 import json
 import urllib3
 import zoneinfo
+import os
+from dotenv import load_dotenv
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-# User settings
-KAKAO_REST_API_KEY = "359ec35bc5aff56f7b70f384c785370a"
-KAKAO_REFRESH_TOKEN = "5ubpLWvcB2--K7YDHfYgA8o8yInuqoqvAAAAAgoNFZsAAAGW6k1ozVIZRy9oVvUS"
-FRIEND_UUID = "jb-Kv4m-i7-MvZGllaWUoZCknKqGt4WxgraDtcY"
-EXIM_API_KEY = "y9l3NFRw4xpUpWemecvdOlU5GDDh7uw2"
-WEATHER_API_KEY = "e2656af1c02f7c2f65d82ce7285d4f2b"
+# Load environment variables from .env file
+load_dotenv()
+
+# User settings (환경 변수에서 불러오기)
+KAKAO_REST_API_KEY = os.getenv("KAKAO_REST_API_KEY")
+KAKAO_REFRESH_TOKEN = os.getenv("KAKAO_REFRESH_TOKEN")
+FRIEND_UUID = os.getenv("FRIEND_UUID")
+EXIM_API_KEY = os.getenv("EXIM_API_KEY")
+WEATHER_API_KEY = os.getenv("WEATHER_API_KEY")
 
 WEEKDAY_KO = ['월', '화', '수', '목', '금', '토', '일']
 WEEKDAY_EN_TO_KO = {
